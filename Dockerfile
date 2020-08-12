@@ -36,10 +36,10 @@ RUN apt-get update -qq && apt-get install -qq -y \
 
 RUN ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
 
-RUN git clone https://github.com/mtrojnar/osslsigncode.git && cd osslsigncode/
+RUN git clone https://github.com/mtrojnar/osslsigncode.git
 
 # == Build osslsigncode
-RUN ./autogen.sh && ./configure && make && make install
+RUN cd osslsigncode/ && ./autogen.sh && ./configure && make && make install
 RUN cd .. && rm -fr osslsigncode/
 
 
